@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "back docker build",
+            "type": "shell",
+            "command": "docker",
+            "args": ["build", "-t", "bifrostphp-back", "api"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "back docker run",
+            "type": "shell",
+            "command": "docker",
+            "args": ["run", "-d", "--name", "bifrostphp-back", "-p", "28080:80", "bifrostphp-back"],
+            "dependsOn": ["back docker build"]
+        }
+    ]
+}

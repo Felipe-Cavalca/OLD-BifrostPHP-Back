@@ -1,6 +1,10 @@
 # Dockerfile.api
 FROM php:8.3-apache
 
+copy ./ /var/www/html
+VOLUME ./:/var/www/html
+VOLUME storage:/storage
+
 # instalando os módulos necessários
 RUN a2enmod rewrite
 RUN a2enmod headers
@@ -10,3 +14,5 @@ RUN docker-php-ext-install pdo_mysql
 RUN pecl install redis && docker-php-ext-enable redis
 
 RUN service apache2 restart
+
+EXPOSE 80
