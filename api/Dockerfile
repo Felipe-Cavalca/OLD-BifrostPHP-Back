@@ -2,8 +2,6 @@
 FROM php:8.3-apache
 
 copy ./ /var/www/html
-VOLUME ./:/var/www/html
-VOLUME storage:/storage
 
 # instalando os módulos necessários
 RUN a2enmod rewrite
