@@ -1,6 +1,7 @@
 {
     "version": "2.0.0",
     "tasks": [
+        // Scripts do back
         {
             "label": "back docker-compose up",
             "type": "shell",
